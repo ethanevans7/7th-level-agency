@@ -14,7 +14,7 @@ Run `npm install`, copy `.env.example` to `.env.local`, then `npm run dev`. Prev
 4. Review Formspree spam protection and domain restrictions. If enabling CAPTCHA, test compatibility with the direct AJAX submission flow; do not enable a challenge that this form does not render.
 5. Submit an inquiry from the deployed site. Verify it appears in Formspree and reaches your inbox. Success on this website means the provider accepted the submission, not that inbox delivery was independently confirmed.
 
-The form collects name, email, and message. It uses browser validation, a honeypot, provider spam filtering, and a pending state preventing repeated clicks. Failed requests keep entered details available. Missing configuration disables submission and displays an availability message. No automatic prospect confirmation email is promised; configure it in Formspree if desired.
+The form collects name, email, optional phone number, budget range, and message. Service or project context is included when visitors arrive from a relevant page. Budget ranges are editable in `src/lib/inquiry-options.ts`. It uses browser validation, a honeypot, provider spam filtering, and a pending state preventing repeated clicks. Failed requests keep entered details available. Missing configuration disables submission and displays an availability message. No automatic prospect confirmation email is promised; configure it in Formspree if desired.
 
 ## Vercel
 
