@@ -1,0 +1,6 @@
+import Link from 'next/link';
+import { Arrow, CTA } from '@/components/site';
+import { services } from '@/lib/content';
+import { Breadcrumbs,meta } from '@/lib/seo';
+export const metadata=meta('Creative & Technology Services in Richmond, VA','Website design, app development, custom software, and film and video production. Explore the capabilities of 7th Level Agency.','/services');
+export default function Services(){return <main id="main"><section className="page-hero"><Breadcrumbs items={[{name:'Services'}]}/><span className="eyebrow">TECHNOLOGY × STORYTELLING</span><h1>One ambition.<br/><em>Many ways to get there.</em></h1><p className="lead">A connected set of capabilities, from digital product development to the stories that bring a brand to life.</p></section>{(['Technology','Production'] as const).map((division,i)=><section className="section" key={division}><div className="section-label"><span>0{i+1} / {division.toUpperCase()}</span></div><h2>{division==='Technology'?'Build what’s next.':'Create what moves people.'}</h2><div className="service-list" style={{marginTop:40}}>{services.filter(s=>s.division===division).map((s,j)=><Link key={s.slug} href={`/services/${s.slug}`}><span className="service-number">0{j+1}</span><h3>{s.name}</h3><Arrow/></Link>)}</div></section>)}<CTA/></main>}
